@@ -1,0 +1,122 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyO3DrjFju8jt8H8m6yZp8/t",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Yuvakumar-28/Yuva28-cell-staxtech/blob/main/Quiz%20game%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Cr9JjpywuVcN",
+        "outputId": "7a47e6d8-7cbe-4acc-d060-26727ecd1565"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Question 1/5\n",
+            "What is the chemical symbol for water?\n",
+            "1. HO\n",
+            "2. O2\n",
+            "3. H2O\n",
+            "4. CO2\n"
+          ]
+        }
+      ],
+      "source": [
+        "\n",
+        "# 1. Import necessary modules\n",
+        "import random\n",
+        "from IPython.display import clear_output\n",
+        "\n",
+        "# 2. Define quiz questions and answers\n",
+        "quiz_data = [\n",
+        "    {\n",
+        "        \"question\": \"What is the capital of France?\",\n",
+        "        \"choices\": [\"Paris\", \"Berlin\", \"Madrid\", \"Rome\"],\n",
+        "        \"answer\": \"Paris\"\n",
+        "    },\n",
+        "    {\n",
+        "        \"question\": \"Who wrote 'Hamlet'?\",\n",
+        "        \"choices\": [\"Charles Dickens\", \"William Shakespeare\", \"Mark Twain\", \"Leo Tolstoy\"],\n",
+        "        \"answer\": \"William Shakespeare\"\n",
+        "    },\n",
+        "    {\n",
+        "        \"question\": \"What is the chemical symbol for water?\",\n",
+        "        \"choices\": [\"O2\", \"H2O\", \"CO2\", \"HO\"],\n",
+        "        \"answer\": \"H2O\"\n",
+        "    },\n",
+        "    {\n",
+        "        \"question\": \"Which planet is known as the Red Planet?\",\n",
+        "        \"choices\": [\"Earth\", \"Mars\", \"Jupiter\", \"Venus\"],\n",
+        "        \"answer\": \"Mars\"\n",
+        "    },\n",
+        "    {\n",
+        "        \"question\": \"What year did India gain independence?\",\n",
+        "        \"choices\": [\"1945\", \"1947\", \"1950\", \"1952\"],\n",
+        "        \"answer\": \"1947\"\n",
+        "    }\n",
+        "]\n",
+        "\n",
+        "# 3. Shuffle questions for replay value\n",
+        "random.shuffle(quiz_data)\n",
+        "\n",
+        "# 4. Quiz loop\n",
+        "score = 0\n",
+        "total = len(quiz_data)\n",
+        "\n",
+        "for idx, item in enumerate(quiz_data, start=1):\n",
+        "    clear_output(wait=True)\n",
+        "    print(f\"Question {idx}/{total}\")\n",
+        "    print(item[\"question\"])\n",
+        "    choices = item[\"choices\"]\n",
+        "    random.shuffle(choices)\n",
+        "    for i, choice in enumerate(choices, start=1):\n",
+        "        print(f\"{i}. {choice}\")\n",
+        "    try:\n",
+        "        choice_idx = int(input(\"Enter choice number: \").strip())\n",
+        "        selected = choices[choice_idx - 1]\n",
+        "    except:\n",
+        "        selected = None\n",
+        "    if selected == item[\"answer\"]:\n",
+        "        print(\"✅ Correct!\")\n",
+        "        score += 1\n",
+        "    else:\n",
+        "        print(f\"❌ Wrong! Correct answer: {item['answer']}\")\n",
+        "    input(\"Press Enter to continue...\")\n",
+        "\n",
+        "# 5. Final results\n",
+        "clear_output()\n",
+        "print(\"✨ Quiz Complete!\")\n",
+        "print(f\"Your Score: {score} / {total}  ({score/total:.0%})\")"
+      ]
+    }
+  ]
+}
